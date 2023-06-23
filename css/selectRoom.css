@@ -1,11 +1,11 @@
 @font-face {
   font-family: "NanumMyeongjoExtraBold";
-  src: url("resources/NanumMyeongjoExtraBold.ttf") format("truetype");
+  src: url("../resources/NanumMyeongjoExtraBold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "MaplestoryBold";
-  src: url("resources/MaplestoryBold.ttf") format("truetype");
+  src: url("../resources/MaplestoryBold.ttf") format("truetype");
 }
 
 * {

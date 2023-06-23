@@ -1,11 +1,11 @@
 @font-face {
   font-family: "NanumMyeongjoExtraBold";
-  src: url("resources/NanumMyeongjoExtraBold.ttf") format("truetype");
+  src: url("../resources/NanumMyeongjoExtraBold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "MaplestoryBold";
-  src: url("resources/MaplestoryBold.ttf") format("truetype");
+  src: url("../resources/MaplestoryBold.ttf") format("truetype");
 }
 
 * {
@@ -129,7 +129,7 @@ body {
 .reportButton {
   height: 25px;
   width: 25px;
-  background-image: url("resources/report.png");
+  background-image: url("../resources/report.png");
   background-size: 25px;
 }
 
@@ -138,7 +138,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
-  font-size: 12px;
+  font-size: 14px;
   height: 40px;
   border-radius: 5px;
 }
@@ -150,6 +150,16 @@ body {
   background-color: #ffffff;
   height: 40px;
   border-radius: 5px;
+}
+
+.stop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
 .callButtonContainer {
@@ -164,14 +174,14 @@ body {
 .canCallButton {
   height: 30px;
   width: 30px;
-  background-image: url("resources/call.png");
+  background-image: url("../resources/call.png");
   background-size: 30px;
 }
 
 .cannotCallButton {
   height: 30px;
   width: 30px;
-  background-image: url("resources/call.png");
+  background-image: url("../resources/call.png");
   background-size: 30px;
   opacity: 0.2;
 }
