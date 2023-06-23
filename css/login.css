@@ -1,11 +1,11 @@
 @font-face {
   font-family: "NanumMyeongjoExtraBold";
-  src: url("NanumMyeongjoExtraBold.ttf") format("truetype");
+  src: url("../resources/NanumMyeongjoExtraBold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "MaplestoryBold";
-  src: url("MaplestoryBold.ttf") format("truetype");
+  src: url("../resources/MaplestoryBold.ttf") format("truetype");
 }
 
 * {
@@ -54,6 +54,9 @@ body {
 #inputContainer {
   margin-top: 20px;
   background-color: #182c44;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 #washer {
@@ -71,4 +74,51 @@ body {
   width: 28px;
   border-radius: 50%;
   border: 1px solid #ffffff;
+}
+
+.inputContainer {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: #ffffff;
+}
+
+.inputContainerText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.inputBox {
+  height: 30px;
+  width: 145px;
+  padding-left: 5px;
+}
+
+#confirmButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 30px;
+  background-color: #dbe0de;
+  height: 40px;
+  width: 80px;
+  border-radius: 10px;
+}
+
+#isFirst {
+  margin-top: 5px;
+  text-align: left;
+}
+
+a,
+a:visited {
+  color: #000000;
+}
+
+a:hover,
+a:visited:hover {
+  color: #83939b;
 }
