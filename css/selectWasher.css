@@ -1,11 +1,11 @@
 @font-face {
   font-family: "NanumMyeongjoExtraBold";
-  src: url("NanumMyeongjoExtraBold.ttf") format("truetype");
+  src: url("resources/NanumMyeongjoExtraBold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "MaplestoryBold";
-  src: url("MaplestoryBold.ttf") format("truetype");
+  src: url("resources/MaplestoryBold.ttf") format("truetype");
 }
 
 * {
@@ -129,7 +129,7 @@ body {
 .reportButton {
   height: 25px;
   width: 25px;
-  background-image: url(report.png);
+  background-image: url("resources/report.png");
   background-size: 25px;
 }
 
@@ -164,14 +164,14 @@ body {
 .canCallButton {
   height: 30px;
   width: 30px;
-  background-image: url(call.png);
+  background-image: url("resources/call.png");
   background-size: 30px;
 }
 
 .cannotCallButton {
   height: 30px;
   width: 30px;
-  background-image: url(call.png);
+  background-image: url("resources/call.png");
   background-size: 30px;
   opacity: 0.2;
 }

@@ -52,12 +52,15 @@ body {
 }
 
 #inputContainer {
+  margin-top: 20px;
+  background-color: #182c44;
 }
 
 #washer {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #ffffff;
 }
 
 #index {
@@ -67,5 +70,5 @@ body {
   height: 28px;
   width: 28px;
   border-radius: 50%;
-  border: 1px solid #000000;
+  border: 1px solid #ffffff;
 }
