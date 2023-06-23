@@ -3,8 +3,32 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-config" content="/resources/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
 
+    <link rel="apple-touch-icon" sizes="180x180" href="/resources/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/resources/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/resources/favicon-16x16.png" />
+    <link rel="manifest" href="/resources/site.webmanifest" />
+    <link rel="mask-icon" href="/resources/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="/resources/favicon.ico" />
     <link rel="stylesheet" href="css/login.css" />
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#homeButton").click(function () {
+          location.href = "selectRoom.html";
+        });
+        $("#machine").html(new URL(location.href).searchParams.get("machineName"));
+        $("#confirmButton").click(function () {
+          $.get("http://192.168.1.124/api/joinSlot?room=" + $("#roomNumberInput").val() + "&time=" + $("#washTimeInput").val() + "&MACHIENIDX=" + new URL(location.href).searchParams.get("machineNumber") + "&pass=" + $("#pwInput").val());
+          location.href = "selectRoom.html";
+        });
+      });
+    </script>
 
     <title>FreshCare</title>
   </head>
@@ -17,7 +41,7 @@
         <p>세탁기 이용하기</p>
         <div id="inputContainer">
           <div id="washer">
-            <div id="index">1</div>
+            <div id="index"><span id="machine"></span></div>
             &nbsp;번 세탁기
           </div>
           <div class="inputBoxContainer">
@@ -25,12 +49,20 @@
             <div><input class="inputBox" id="roomNumberInput" type="text" placeholder="A000-1" /></div>
           </div>
           <div class="inputBoxContainer">
+            <div class="inputBoxContainerText">남은시간 입력</div>
+            <div><input class="inputBox" id="washTimeInput" type="" /></div>
+          </div>
+          <div class="inputBoxContainer">
             <div class="inputBoxContainerText">간편 비밀번호 입력</div>
             <div><input class="inputBox" class="inputContainer" id="pwInput" type="password" /></div>
           </div>
-          <div id="confirmButton">완료</div>
         </div>
-        <p id="isFirst"><a href="#">서비스 이용이 처음이신가요?</a></p>
+        <div id="nav">
+          <div id="backButton">뒤로가기</div>
+          <div id="homeButton">H</div>
+          <div id="confirmButton">이용하기</div>
+        </div>
+        <p id="isFirst"><a id="register" href="register.html">서비스 이용이 처음이신가요?</a></p>
       </div>
     </div>
   </body>

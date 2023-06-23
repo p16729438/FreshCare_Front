@@ -47,6 +47,7 @@ body {
 
 #content {
   padding: 20px;
+  padding-top: 40px;
   text-align: center;
 }
 
@@ -66,7 +67,7 @@ body {
   grid-template-columns: 1fr;
   grid-auto-rows: 50px;
   grid-gap: 10px;
-  height: 250px;
+  height: 220px;
   overflow: auto;
 }
 
@@ -80,7 +81,7 @@ body {
   width: 305px;
   padding: 5px;
   display: grid;
-  grid-template-columns: 30px 120px 100px 40px;
+  grid-template-columns: 30px 75px 40px 100px 40px;
   grid-gap: 5px;
   align-items: center;
   border-radius: 5px;
@@ -108,22 +109,39 @@ body {
   border: 1px solid #000000;
 }
 
-.statusContainer {
+.canUse {
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: #ffffff;
   height: 40px;
   border-radius: 5px;
 }
 
-.canUse {
-  width: 120px;
+.cannotUse {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  height: 40px;
+  border-radius: 5px;
 }
 
-.cannotUse {
-  width: 80px;
-  margin-right: 10px;
-  text-align: right;
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.stopButton {
+  height: 25px;
+  width: 25px;
+  background-image: url("../resources/stop.png");
+  background-size: 25px;
+  cursor: pointer;
 }
 
 .reportButton {
@@ -131,6 +149,7 @@ body {
   width: 25px;
   background-image: url("../resources/report.png");
   background-size: 25px;
+  cursor: pointer;
 }
 
 .useButton {
@@ -141,6 +160,7 @@ body {
   font-size: 14px;
   height: 40px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .time {
@@ -160,15 +180,7 @@ body {
   height: 40px;
   border-radius: 5px;
   font-size: 14px;
-}
-
-.callButtonContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  height: 40px;
-  border-radius: 5px;
+  cursor: pointer;
 }
 
 .canCallButton {
@@ -176,6 +188,7 @@ body {
   width: 30px;
   background-image: url("../resources/call.png");
   background-size: 30px;
+  cursor: pointer;
 }
 
 .cannotCallButton {
@@ -184,4 +197,17 @@ body {
   background-image: url("../resources/call.png");
   background-size: 30px;
   opacity: 0.2;
+}
+
+#homeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 30px;
+  background-color: #dbe0de;
+  height: 40px;
+  width: 80px;
+  border-radius: 5px;
+  cursor: pointer;
 }

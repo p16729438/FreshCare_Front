@@ -13,7 +13,7 @@
     <link rel="manifest" href="/resources/site.webmanifest" />
     <link rel="mask-icon" href="/resources/safari-pinned-tab.svg" color="#5bbad5" />
     <link rel="shortcut icon" href="/resources/favicon.ico" />
-    <link rel="stylesheet" href="css/register.css" />
+    <link rel="stylesheet" href="css/stop.css" />
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
@@ -23,7 +23,7 @@
           location.href = "selectRoom.html";
         });
         $("#confirmButton").click(function () {
-          $.get("http://192.168.1.124/api/userJoin?USERROOM=" + $("#USERROOM").val() + "&USERPW=" + $("#USERPW").val() + "&USERPHONE=" + $("#USERPHONE").val() + "&USEREMAIL=" + $("#USEREMAIL").val());
+          $.get("http://192.168.1.124/api/outSlot?MACHIENIDX=" + new URL(location.href).searchParams.get("machineNumber"));
           location.href = "selectRoom.html";
         });
       });
@@ -37,33 +37,25 @@
     </div>
     <div id="article">
       <div id="content">
-        <p>간편회원가입</p>
+        <p>세탁기 사용 종료하기</p>
         <div id="inputContainer">
+          <div id="washer">
+            <div id="index">1</div>
+            &nbsp;번 세탁기
+          </div>
           <div class="inputBoxContainer">
             <div class="inputBoxContainerText">호수 입력</div>
-            <div><input class="inputBox" id="USERROOM" type="text" placeholder="A000-1" /></div>
+            <div><input class="inputBox" id="roomNumberInput" type="text" placeholder="A000-1" /></div>
           </div>
           <div class="inputBoxContainer">
             <div class="inputBoxContainerText">간편 비밀번호 입력</div>
-            <div><input class="inputBox" id="USERPW" type="password" /></div>
-          </div>
-          <div class="inputBoxContainer">
-            <div class="inputBoxContainerText">비밀번호 확인</div>
-            <div><input class="inputBox" type="password" /></div>
-          </div>
-          <div class="inputBoxContainer">
-            <div class="inputBoxContainerText">전화번호</div>
-            <div><input class="inputBox" id="USERPHONE" type="tel" placeholder="01012345678" /></div>
-          </div>
-          <div class="inputBoxContainer">
-            <div class="inputBoxContainerText">이메일 주소</div>
-            <div><input class="inputBox" id="USEREMAIL" type="email" /></div>
+            <div><input class="inputBox" class="inputContainer" id="pwInput" type="password" /></div>
           </div>
         </div>
         <div id="nav">
           <div id="backButton">뒤로가기</div>
           <div id="homeButton">H</div>
-          <div id="confirmButton">완료</div>
+          <div id="confirmButton">종료하기</div>
         </div>
       </div>
     </div>
