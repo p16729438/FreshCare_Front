@@ -19,6 +19,7 @@
 
     <script>
       $(document).ready(function () {
+        $("#machine").html(new URL(location.href).searchParams.get("machineName"));
         $("#homeButton").click(function () {
           location.href = "selectRoom.html";
         });
@@ -40,7 +41,7 @@
         <p>세탁기 사용 종료하기</p>
         <div id="inputContainer">
           <div id="washer">
-            <div id="index">1</div>
+            <div id="index"><span id="machine"></span></div>
             &nbsp;번 세탁기
           </div>
           <div class="inputBoxContainer">
@@ -54,7 +55,7 @@
         </div>
         <div id="nav">
           <div id="backButton">뒤로가기</div>
-          <div id="homeButton">H</div>
+          <div id="homeButton">홈</div>
           <div id="confirmButton">종료하기</div>
         </div>
       </div>

@@ -40,31 +40,31 @@
             } else {
               var washer = '<li class="using" id="washer' + numberString + '">';
               washer += '<div class="index">' + value["machienName"] + "</div>";
-              if (value["washTime"] != 0) {
+              var time = Math.floor((new Date(value["washTime"].split(".")[0]) - new Date()) / 60000);
+              if (time > 0) {
                 washer += '<div class="cannotUse">사용중</div>';
                 washer += '<div class="buttonContainer"><div class="stopButton"></div></div>';
-
-                $.getJSON("http://192.168.1.124/api/getTime?machineid=" + value["machienIdx"], function (data) {
-                  washer += '<div class="time">' + data + "M</div>";
-                });
-                //washer += '<div class="time">39M</div>';
+                washer += '<div class="time">' + time + "M</div>";
                 washer += '<div class="buttonContainer"><div class="cannotCallButton"></div></div>';
               } else {
                 washer += '<div class="cannotUse">사용완료</div>';
-                washer += '<div class="reportButton"></div>';
+                washer += '<div class="buttonContainer"><div class="reportButton"></div></div>';
                 washer += '<div class="stop">종료하기</div>';
                 washer += '<div class="buttonContainer"><div class="canCallButton"></div></div>';
               }
               washer += "</li>";
               $("#washerList").append(washer);
+              $("#washer" + numberString + " .stopButton").click(function () {
+                location.href = "stop.html?machineName=" + value["machienName"] + "&roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=0&machineNumber=" + value["machienIdx"];
+              });
               $("#washer" + numberString + " .reportButton").click(function () {
-                location.href = "report.html?roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=0&machineNumber=" + value["machienIdx"];
+                location.href = "report.html?machineName=" + value["machienName"] + "&roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=0&machineNumber=" + value["machienIdx"];
               });
               $("#washer" + numberString + " .stop").click(function () {
-                location.href = "stop.html?roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=0&machineNumber=" + value["machienIdx"];
+                location.href = "stop.html?machineName=" + value["machienName"] + "&roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=0&machineNumber=" + value["machienIdx"];
               });
               $("#washer" + numberString + " .canCallButton").click(function () {
-                $.get().href = "stop.html?roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=0&machineNumber=" + value["machienIdx"];
+                $.get().href = "stop.html?machineName=" + value["machienName"] + "&roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=0&machineNumber=" + value["machienIdx"];
               });
             }
             machineNumber++;
@@ -91,29 +91,31 @@
               var dryer = '<li class="using" id="dryer' + numberString + '">';
               dryer += '<div class="index">' + value["machienName"] + "</div>";
               dryer += '<div class="statusContainer">';
-              if (value["washTime"] != 0) {
+              var time = Math.floor((new Date(value["washTime"].split(".")[0]) - new Date()) / 60000);
+              if (time != 0) {
                 dryer += '<div class="cannotUse">사용중</div>';
                 dryer += '<div class="buttonContainer"><div class="stopButton"></div></div>';
-                $.getJSON("http://192.168.1.124/api/getTime?machineid=" + value["machienIdx"], function (data) {
-                  dryer += '<div class="time">' + data + "M</div>";
-                });
+                dryer += '<div class="time">' + time + "M</div>";
                 dryer += '<div class="buttonContainer"><div class="cannotCallButton"></div></div>';
               } else {
                 dryer += '<div class="cannotUse">사용완료</div>';
-                dryer += '<div class="reportButton"></div>';
+                dryer += '<div class="buttonContainer"><div class="reportButton"></div></div>';
                 dryer += '<div class="stop">종료하기</div>';
                 dryer += '<div class="buttonContainer"><div class="canCallButton"></div></div>';
               }
               dryer += "</li>";
               $("#dryerList").append(dryer);
+              $("#dryer" + numberString + " .stopButton").click(function () {
+                location.href = "stop.html?machineName=" + value["machienName"] + "&roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=1&machineNumber=" + value["machienIdx"];
+              });
               $("#dryer" + numberString + " .reportButton").click(function () {
-                location.href = "report.html?roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=1&machineNumber=" + value["machienIdx"];
+                location.href = "report.html?machineName=" + value["machienName"] + "&roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=1&machineNumber=" + value["machienIdx"];
               });
               $("#dryer" + numberString + " .stop").click(function () {
-                location.href = "stop.html?roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=1&machineNumber=" + value["machienIdx"];
+                location.href = "stop.html?machineName=" + value["machienName"] + "&roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=1&machineNumber=" + value["machienIdx"];
               });
               $("#dryer" + numberString + " .canCallButton").click(function () {
-                $.get().href = "stop.html?roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=1&machineNumber=" + value["machienIdx"];
+                $.get().href = "stop.html?machineName=" + value["machienName"] + "&roomNumber=" + new URL(location.href).searchParams.get("roomNumber") + "&type=1&machineNumber=" + value["machienIdx"];
               });
             }
             machineNumber++;

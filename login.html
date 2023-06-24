@@ -19,10 +19,10 @@
 
     <script>
       $(document).ready(function () {
+        $("#machine").html(new URL(location.href).searchParams.get("machineName"));
         $("#homeButton").click(function () {
           location.href = "selectRoom.html";
         });
-        $("#machine").html(new URL(location.href).searchParams.get("machineName"));
         $("#confirmButton").click(function () {
           $.get("http://192.168.1.124/api/joinSlot?room=" + $("#roomNumberInput").val() + "&time=" + $("#washTimeInput").val() + "&MACHIENIDX=" + new URL(location.href).searchParams.get("machineNumber") + "&pass=" + $("#pwInput").val());
           location.href = "selectRoom.html";
@@ -59,7 +59,7 @@
         </div>
         <div id="nav">
           <div id="backButton">뒤로가기</div>
-          <div id="homeButton">H</div>
+          <div id="homeButton">홈</div>
           <div id="confirmButton">이용하기</div>
         </div>
         <p id="isFirst"><a id="register" href="register.html">서비스 이용이 처음이신가요?</a></p>
